@@ -36,8 +36,7 @@ namespace EssentialTools.Infrastructure
             // LinqValueCalculator는 IDiscountHelper에 의존
             kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
             kernel.Bind<IDiscountHelper>()
-                  .To<DefaultDiscountHelper>()
-                  .WithPropertyValue("DiscountSize", 50M);
+                  .To<DefaultDiscountHelper>().WithConstructorArgument("discountSizeParam", 50M);
         }
     }
 }
