@@ -31,7 +31,13 @@ namespace EssentialTools.Infrastructure
 
         private void AddBindings()
         {
+            // 의존성 체인
+            // HomeController는 IValueCalculator에 의존
+            // LinqValueCalculator는 IDiscountHelper에 의존
             kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            kernel.Bind<IDiscountHelper>()
+                  .To<DefaultDiscountHelper>()
+                  .WithPropertyValue("DiscountSize", 50M);
         }
     }
 }
