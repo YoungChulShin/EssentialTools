@@ -29,7 +29,6 @@
         }
     }
 
-
     public class MinimumDiscountHelper : IDiscountHelper
     {
         public decimal ApplyDiscount(decimal totalParam)
